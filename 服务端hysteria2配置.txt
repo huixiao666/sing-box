@@ -1,0 +1,43 @@
+listen: :8443 
+
+acme:
+  domains:
+    - 域名
+  email: 1234567890@qq.com
+
+auth:
+  type: password
+  password: 密码
+  
+quic:
+  initStreamReceiveWindow: 8388608 
+  maxStreamReceiveWindow: 8388608 
+  initConnReceiveWindow: 20971520 
+  maxConnReceiveWindow: 20971520 
+  maxIdleTimeout: 30s 
+  maxIncomingStreams: 1024 
+  disablePathMTUDiscovery: false
+  
+bandwidth:
+  up: 10 mbps
+  down: 20 mbps
+  
+masquerade:
+  type: proxy
+  proxy:
+    url: https://www.bing.com
+    rewriteHost: true
+    
+obfs:
+  type: salamander 
+  salamander:
+    password: 混淆密码
+    
+resolver:
+  type: https
+  https:
+    addr: 1.1.1.1:443 
+    timeout: 10s
+    sni: cloudflare-dns.com
+    insecure: false
+    
